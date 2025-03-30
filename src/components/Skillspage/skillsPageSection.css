@@ -1,6 +1,7 @@
 .skills-container {
     margin: 4rem 0; 
     position: relative;
+    width: 100%;
 }
 
 .skills-container::after,
@@ -40,6 +41,7 @@
     display: flex; 
     align-items: flex-start;
     gap: 3rem;
+    justify-content: center;
 }
 
 .skillss {

@@ -4,28 +4,22 @@ import SkillPageSection from './skillsPageSection.jsx';
 import CpSection from './cpSection';
 import { useState } from 'react';
 
-
 const SkillsPage = () => {
+    const [show, isShow] = useState(false);
 
-    const[show,isShow] = useState(false);
-
-
-    const handleCP =()=>{
+    const handleCP = () => {
         isShow(!show);
     }
+
     return (
         <>
-
-
-            <button className='cpButton' onClick={handleCP}>Click To reveal Stats</button>
-            <br /><br /><br />
-            {show? <CpSection />:<SkillPageSection />}
-
-            
-
-            <br />
-            <br /><br /><br />
-
+            <div className="skills-page-container">
+                <SkillPageSection />
+                <br /><br />
+                <button className='cpButton' onClick={handleCP}>Click To reveal Stats</button>
+                <br /><br />
+                {show && <CpSection />}
+            </div>
         </>
     );
 };

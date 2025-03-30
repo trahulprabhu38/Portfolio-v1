@@ -23,8 +23,12 @@
 .nav-content ul {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     list-style: none;
+}
+
+.nav-content ul a {
+    text-decoration: none;
 }
 
 .nav-content li {
@@ -74,6 +78,7 @@
     border-radius: 0.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .contact-btn:hover {

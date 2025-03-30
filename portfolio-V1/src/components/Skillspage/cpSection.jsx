@@ -7,7 +7,7 @@ export default function CpSection() {
     <div className="cpStats">
       <h1><b><>Github</></b></h1>
       <br />
-        <GitHubCalendar  username="T-Rahul-prabhu-38" /> 
+        <GitHubCalendar  username="trahulprabhu38" /> 
         <br /><br /><br /><br /><br />
         <h1><b><>LeetCode </></b></h1>
       <br />

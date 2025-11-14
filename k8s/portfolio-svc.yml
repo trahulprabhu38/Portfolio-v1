@@ -7,7 +7,7 @@ metadata:
     type: portfolio
   namespace: personal-projects
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
       app: pod
       type: portfolio

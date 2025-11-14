@@ -1,5 +1,5 @@
 #skills {
-  padding: 1.5rem 0;
+  padding: 6rem 0;
 }
 
 .skills-container {
@@ -32,10 +32,9 @@
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 2rem 1.25rem;
   padding: 0.5rem;
-  justify-items: start;
+  justify-items: center;
   max-width: 1000px;
   margin: 0 auto;
-  padding-left: 1.5rem;
 }
 
 .devops-grid {
@@ -55,8 +54,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
+  width: 76px;
+  height: 76px;
   margin: 0;
 }
 
@@ -139,7 +138,6 @@
   .skills-grid {
     grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem 0.75rem;
-    padding-left: 1rem;
   }
 
   .devops-grid {
@@ -148,10 +146,13 @@
 }
 
 @media (max-width: 768px) {
+  #skills {
+    padding: 4rem 0;
+  }
+
   .skills-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem 0.75rem;
-    padding-left: 0.75rem;
   }
 
   .devops-grid {
@@ -163,8 +164,8 @@
   }
 
   .skill-item {
-    width: 70px;
-    height: 70px;
+    width: 67px;
+    height: 67px;
     padding: 0.8rem;
   }
 
@@ -178,13 +179,12 @@
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem 0.5rem;
-    padding-left: 0.25rem;
   }
 
   .devops-grid {
     gap: 1.5rem 0.5rem;
   }
-  
+
   .skills-container h2 {
     font-size: 2rem;
   }
@@ -194,8 +194,8 @@
   }
 
   .skill-item {
-    width: 60px;
-    height: 60px;
+    width: 57px;
+    height: 57px;
     padding: 0.7rem;
   }
 

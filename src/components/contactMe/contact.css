@@ -1,25 +1,206 @@
-.contact-container { 
-  margin: 4rem 0; 
-  position: relative; 
+.contact-container {
+  padding: 6rem 0;
+  position: relative;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  overflow: hidden;
 }
 
-.contact-container h5 {
-  font-size: 1.5rem; 
-  font-weight: 600; 
-  margin-bottom: 3rem; 
+.contact-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 30% 50%, rgba(119, 112, 156, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(119, 112, 156, 0.08) 0%, transparent 50%);
+  pointer-events: none;
 }
 
-.contact-content { 
-  display: flex; 
-  gap: 3rem; 
+/* Header Section */
+.contact-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #fff 0%, #77709c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -2px;
+}
+
+.contact-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Social Grid */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.75rem;
+  background: rgba(26, 26, 46, 0.6);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 2px solid rgba(119, 112, 156, 0.2);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.social-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(119, 112, 156, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.social-card:hover::before {
+  left: 100%;
+}
+
+.social-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(119, 112, 156, 0.5);
+  box-shadow: 0 12px 40px rgba(119, 112, 156, 0.3);
+}
+
+.social-icon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(119, 112, 156, 0.15);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.social-card:hover .social-icon {
+  background: rgba(119, 112, 156, 0.3);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.social-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.social-icon svg {
+  width: 28px;
+  height: 28px;
+  color: #fff;
+}
+
+.social-info {
+  flex: 1;
+}
+
+.social-info h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.3px;
+}
+
+.social-info p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Specific card hover effects */
+.email-card:hover {
+  border-color: rgba(234, 67, 53, 0.5);
+}
+
+.github-card:hover {
+  border-color: rgba(88, 166, 255, 0.5);
+}
+
+.linkedin-card:hover {
+  border-color: rgba(10, 102, 194, 0.5);
+}
+
+.leetcode-card:hover {
+  border-color: rgba(255, 184, 0, 0.5);
+}
+
+.medium-card:hover {
+  border-color: rgba(0, 171, 85, 0.5);
 }
 
 @media (max-width: 768px) {
-  .contact-content {
-	flex-direction: column-reverse;
+  .contact-container {
+    padding: 4rem 0;
   }
-  .contact-container h5 {
-	font-size: 1.3rem;
-	margin-bottom: 0rem;
+
+  .social-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .social-card {
+    padding: 1.5rem;
+  }
+
+  .contact-header {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .social-icon img,
+  .social-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .social-info h4 {
+    font-size: 1rem;
+  }
+
+  .social-info p {
+    font-size: 0.875rem;
   }
 }

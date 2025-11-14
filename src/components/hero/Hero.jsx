@@ -9,7 +9,7 @@ const Hero = () => {
 
   React.useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ['Programmer   ', 'Competive Programmer   ','Full-Stack Developer   ','Blockchain Enthusiast   ','React Developer    '],
+      strings: ['DevOps Engineer','Kubernetes Enthusiast'],
         typeSpeed: 100,
         backSpeed:100,
         smartBackspace:true,
@@ -26,13 +26,13 @@ const Hero = () => {
 
     return (
         <>
-            <section className="hero-container">
+            <section id="hero" className="hero-container">
                 <div className="hero-content">    
 
                     
                     <h2>I<b className='pq'>'</b>m <b className='pq'>a</b> <span ref={el}/> </h2>
                     <p>
-                    Competitive Programmer | FullStack Developer | Blockchain Enthusiast | DSCE'26 Artificial Intelligence, Machine Learning|                        
+                    DevOps@PGAGI | Intern @ISRO | Open Source Contributor | GoLang |AWS Enthusiast | DSCE'26 AIML | Engineering Scalability and Experimenting with Kubernetes
                     </p>
                 </div>
                 <div className="hero-img">
@@ -41,7 +41,7 @@ const Hero = () => {
                             <img src='./personalPhotos.jpg' alt="mee" />
                         </div>
                     </div>
-                    <div>
+                    {/* <div>
                         <div className="tech-icon">
                            <a href="https://www.instagram.com/rahul._38_/"  target="_blank"> <img src="./insta.png" alt="insta" /></a>
                         </div>
@@ -51,6 +51,11 @@ const Hero = () => {
                         <div className="tech-icon">
                         <a href="https://www.linkedin.com/in/trahulprabhu38/"  target="_blank" > <img src="linkedIn.png" alt="insta" /></a>
                         </div>
+                        
+                    </div> */}
+
+                    <div>
+                        <br /><br />
                     </div>
                 </div>
             </section>

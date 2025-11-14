@@ -1,19 +1,19 @@
 .about-section {
-  padding: 5rem 0;
+  padding: 4.5rem 0;
   background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
 }
 
 .about-container {
-  max-width: 1200px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 0.9rem;
 }
 
 .about-container h2 {
   text-align: center;
   color: #fff;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: 2.25rem;
+  margin-bottom: 2.7rem;
   position: relative;
   display: inline-block;
 }
@@ -33,7 +33,7 @@
 .about-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 2.7rem;
   align-items: center;
 }
 
@@ -41,24 +41,63 @@
   color: #fff;
 }
 
+.about-text h3 {
+  font-size: 1.3rem;
+  color: #77709c;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.about-text h3:first-child {
+  margin-top: 0;
+}
+
 .about-text p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.35rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.about-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.about-text ul li {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  position: relative;
   line-height: 1.6;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
+}
+
+.about-text ul li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #77709c;
+  font-size: 1.2rem;
+}
+
+.about-text ul li strong {
+  color: #ff6b6b;
+  font-weight: 600;
 }
 
 .about-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 }
 
 .stat-item {
   text-align: center;
-  padding: 2rem;
+  padding: 1.8rem;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
+  border-radius: 13px;
   transition: transform 0.3s ease;
 }
 
@@ -68,13 +107,13 @@
 
 .stat-item h3 {
   color: #ff6b6b;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.25rem;
+  margin-bottom: 0.45rem;
 }
 
 .stat-item p {
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
@@ -117,4 +156,96 @@
   .stat-item h3 {
     font-size: 2rem;
   }
+}
+
+/* Tools CTA Button */
+.tools-cta {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tools-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 2rem;
+  background: rgba(26, 26, 46, 0.7);
+  backdrop-filter: blur(20px);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(119, 112, 156, 0.3);
+  letter-spacing: 0.3px;
+}
+
+.tools-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(119, 112, 156, 0.2) 0%, rgba(119, 112, 156, 0.4) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.tools-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.tools-button:hover::before {
+  opacity: 1;
+}
+
+.tools-button:hover::after {
+  left: 100%;
+}
+
+.tools-button:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(119, 112, 156, 0.4);
+  border-color: rgba(119, 112, 156, 0.6);
+}
+
+.tools-button > * {
+  position: relative;
+  z-index: 2;
+}
+
+.tools-button svg:first-child {
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(119, 112, 156, 0.5));
+}
+
+.tools-button svg:last-child {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.tools-button:hover svg:last-child {
+  transform: translateX(5px);
+}
+
+.tools-button span {
+  background: linear-gradient(135deg, #fff 0%, #d0cde3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 } 

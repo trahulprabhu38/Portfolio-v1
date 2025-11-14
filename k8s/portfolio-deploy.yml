@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: portfolio-deployment
+  labels:
+    app: deployment
+    type: portfolio    
+  namespace: personal-projects
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pod
+      type: portfolio
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      name: portfolio-pod
+      labels:
+        app: pod
+        type: portfolio
+    spec:
+      containers: 
+        - name: portfolio-frontend-v5-devops-latest
+          image: trahulprabhu38/portfolio-v5:linux-build
+          ports:
+            - containerPort: 80
+          resources:    
+            limits:
+              cpu: "0.5"
+              memory: "256Mi"
+            requests:
+              cpu: "0.5"
+              memory: "128Mi"
+                
+              
+      
+

@@ -151,12 +151,11 @@ export const WORK_EXPERIENCE = [
     title: "DevOps Engineer - TOINGG",
     date: "October 2025 - Present",
     responsibilities: [
-    "Designed and operated a production Kubernetes (AKS) platform for stateless microservices, improving scalability,fault isolation, and deployment reliability."
-    "Implemented GitOps-based CI/CD pipeline using ArgoCD with blue-green and canary strategies, enabling automated, zero-downtime releases across environments."
-    "Built a production observability stack (Prometheus, Grafana, NGINX ingress), reducing incident detection time and cutting MTTR by 70%."
-    "Automated Infrastructure as Code (Terraform) for disaster recovery and high availability; handled production incidents and on-call debugging, reducing incident response time by 40%."  
-    "Implemented Kubernetes RBAC, IAM policies, and secure networking (VPC, load balancers) for production workloads."
-
+    "Designed and operated a production Kubernetes (AKS) platform for stateless microservices, improving scalability,fault isolation, and deployment reliability.",
+    "Implemented GitOps-based CI/CD pipeline using ArgoCD with blue-green and canary strategies, enabling automated, zero-downtime releases across environments.",
+    "Built a production observability stack (Prometheus, Grafana, NGINX ingress), reducing incident detection time and cutting MTTR by 70%.",
+    "Automated Infrastructure as Code (Terraform) for disaster recovery and high availability; handled production incidents and on-call debugging, reducing incident response time by 40%." ,
+    "Implemented Kubernetes RBAC, IAM policies, and secure networking (VPC, load balancers) for production workloads.",
     ],
   },
   {
@@ -223,3 +222,6 @@ export const WORK_EXPERIENCE = [
     ],
   },
 ];
+
+
+

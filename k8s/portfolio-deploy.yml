@@ -25,8 +25,8 @@ spec:
         type: portfolio
     spec:
       containers: 
-        - name: portfolio-frontend-v5-devops-latest
-          image: trahulprabhu38/portfolio-v5:linux-build
+        - name: portfolio-frontend-v6-devops-latest
+          image: trahulprabhu38/portfolio-v6:linux-build
           ports:
             - containerPort: 80
           resources:    

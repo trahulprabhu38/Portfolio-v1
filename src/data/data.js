@@ -151,15 +151,12 @@ export const WORK_EXPERIENCE = [
     title: "DevOps Engineer - TOINGG",
     date: "October 2025 - Present",
     responsibilities: [
-      // "Deployed production-grade Azure Kubernetes Service (AKS) cluster with stateless microservice architecture improving concurrency, fault tolerance and resilience",
-      // "Configured NGINX reverse proxy servers with automated Let's Encrypt SSL certificate renewal and intelligent multi-server load balancing",
-      // "Deployed production-grade AKS cluster with stateless microservice architecture improving concurrency and resilience",
-      // // "Managed self-hosted MongoDB cluster with sharding, replication, high availability, and change streams",
-      // "Configured NGINX reverse proxies with Let's Encrypt SSL and multi-server load balancing",
-      // // "Implemented Prometheus–Grafana monitoring stack reducing Mean Time To Recovery (MTTR) by 70%",
-      // // "Implemented GitOps workflows with ArgoCD including blue-green and canary deployment strategies",
-      // // "Built comprehensive 3-stage CI/CD pipeline: Testing → Pre-Production → Production",
-      "task dedo , abhi tak start nhi hua he"
+    "Designed and operated a production Kubernetes (AKS) platform for stateless microservices, improving scalability,fault isolation, and deployment reliability."
+    "Implemented GitOps-based CI/CD pipeline using ArgoCD with blue-green and canary strategies, enabling automated, zero-downtime releases across environments."
+    "Built a production observability stack (Prometheus, Grafana, NGINX ingress), reducing incident detection time and cutting MTTR by 70%."
+    "Automated Infrastructure as Code (Terraform) for disaster recovery and high availability; handled production incidents and on-call debugging, reducing incident response time by 40%."  
+    "Implemented Kubernetes RBAC, IAM policies, and secure networking (VPC, load balancers) for production workloads."
+
     ],
   },
   {

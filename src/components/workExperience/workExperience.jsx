@@ -43,17 +43,15 @@ const WorkExperience = () => {
         }
       );
 
-      // Each entry: card slides in from its side, dot springs in
+      // Each entry: card slides in from left, dot springs in
       document.querySelectorAll(".exp-entry").forEach((entry) => {
-        const isLeft = entry.classList.contains("exp-left");
         const card = entry.querySelector(".exp-card");
         const dot = entry.querySelector(".exp-dot");
 
-        // Card slides in from left or right
         gsap.fromTo(
           card,
           {
-            x: isLeft ? -90 : 90,
+            x: -80,
             opacity: 0,
             filter: "blur(6px)",
           },
@@ -95,6 +93,9 @@ const WorkExperience = () => {
 
   return (
     <section className="exp-section" id="experience" ref={sectionRef}>
+      <div className="exp-cloud exp-cloud-orange" />
+      <div className="exp-cloud exp-cloud-blue" />
+      <div className="exp-cloud exp-cloud-green" />
       <div className="exp-header">
         <span className="exp-eyebrow">Experience</span>
         <h2 className="exp-title">Professional Journey</h2>
@@ -107,53 +108,33 @@ const WorkExperience = () => {
         <div className="exp-line" ref={lineRef} />
 
         {WORK_EXPERIENCE.map((item, index) => {
-          const isLeft = index % 2 === 0;
           const parts = item.title.split(" - ");
           const company = parts[parts.length - 1];
           const role = parts.slice(0, -1).join(" - ");
 
-          const card = (
-            <div className="exp-card">
-              <div className="exp-card-glow" />
-              <div className="exp-card-top">
-                <span className="exp-company-chip">{company}</span>
-                <span className="exp-date-chip">{item.date}</span>
-              </div>
-              <h3 className="exp-role">{role}</h3>
-              <ul className="exp-bullets">
-                {item.responsibilities.map((r, i) => (
-                  <li key={i}>
-                    <span className="exp-bullet-dot" />
-                    <span>{r}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-
           return (
-            <div key={index} className={`exp-entry ${isLeft ? "exp-left" : "exp-right"}`}>
-              {isLeft ? (
-                <>
-                  {card}
-                  <div className="exp-dot-col">
-                    <div className="exp-dot">
-                      <div className="exp-dot-ring" />
-                    </div>
-                  </div>
-                  <div className="exp-spacer" />
-                </>
-              ) : (
-                <>
-                  <div className="exp-spacer" />
-                  <div className="exp-dot-col">
-                    <div className="exp-dot">
-                      <div className="exp-dot-ring" />
-                    </div>
-                  </div>
-                  {card}
-                </>
-              )}
+            <div key={index} className="exp-entry">
+              <div className="exp-dot-col">
+                <div className="exp-dot">
+                  <div className="exp-dot-ring" />
+                </div>
+              </div>
+              <div className="exp-card">
+                <div className="exp-card-glow" />
+                <div className="exp-card-top">
+                  <span className="exp-company-chip">{company}</span>
+                  <span className="exp-date-chip">{item.date}</span>
+                </div>
+                <h3 className="exp-role">{role}</h3>
+                <ul className="exp-bullets">
+                  {item.responsibilities.map((r, i) => (
+                    <li key={i}>
+                      <span className="exp-bullet-dot" />
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           );
         })}

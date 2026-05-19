@@ -1,12 +1,13 @@
 .nav-wrapper {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(6, 4, 23, 0.6);
     padding: 0.5rem 0;
     position: sticky;
     top: 0;
-    z-index: 30;
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(119, 112, 156, 0.2);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 500;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(119, 112, 156, 0.18);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
 .nav-content {

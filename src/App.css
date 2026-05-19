@@ -1,19 +1,124 @@
-.container{
-    max-width: 1260px !important;
-    margin: 0 auto;
-    position: relative;
-    padding: 0 1.8rem;
-}
-@media (max-width: 1400px) {
-    .container { padding: 0 1.5rem;
-    }
+/* ── Horizontal scroll layout ── */
+.h-scroll-wrapper {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 
+.h-panels-track {
+  display: flex;
+  height: 100%;
+  width: calc(3 * 100vw);
+  will-change: transform;
+}
 
-hr{
-    border: 0;
-    height: 3px;
-    background: #77709c;
-    margin: 1rem 0;
-    box-shadow: 0 0px 20px 0px #fffbfb;
+.h-panel {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Panel navigation overlay ── */
+.panel-nav {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.panel-dots {
+  display: flex;
+  gap: 0.55rem;
+  pointer-events: all;
+}
+
+.panel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.panel-dot.active {
+  background: #7c66e3;
+  box-shadow: 0 0 10px rgba(124, 102, 227, 0.9);
+  transform: scale(1.35);
+}
+
+.panel-dot:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.15);
+}
+
+.panel-arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.9rem;
+  background: rgba(12, 10, 32, 0.75);
+  border: 1px solid rgba(124, 102, 227, 0.35);
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  pointer-events: all;
+  letter-spacing: 0.04em;
+}
+
+.panel-arrow-btn:hover {
+  border-color: rgba(124, 102, 227, 0.7);
+  color: #fff;
+  background: rgba(124, 102, 227, 0.15);
+  box-shadow: 0 4px 16px rgba(124, 102, 227, 0.2);
+}
+
+.panel-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: rgba(255, 255, 255, 0.22);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: hint-pulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hint-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* ── Main page ── */
+.main-page {
+  position: relative;
+}
+
+/* ── App shell ── */
+.app {
+  position: relative;
+}
+
+hr {
+  border: 0;
+  height: 3px;
+  background: #77709c;
+  margin: 1rem 0;
+  box-shadow: 0 0px 20px 0px #fffbfb;
 }

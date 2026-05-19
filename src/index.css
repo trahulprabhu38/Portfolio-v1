@@ -7,7 +7,11 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color: #060417;
+}
+
 body {
   color: white;
-  background-color: #060417;
+  background: transparent;
 }

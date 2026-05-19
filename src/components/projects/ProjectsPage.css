@@ -1,18 +1,13 @@
 .projects-page {
   min-height: 100vh;
-  background: linear-gradient(180deg, #060417 0%, #0d0b2b 55%, #060417 100%);
+  background: transparent;
   padding: 4rem 1.5rem 6rem;
   position: relative;
   overflow: hidden;
 }
 
 .pp-bg-grid {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: radial-gradient(circle, rgba(119, 112, 156, 0.1) 1px, transparent 1px);
-  background-size: 32px 32px;
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 /* ─── Header ─── */

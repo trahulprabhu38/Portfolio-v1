@@ -23,36 +23,48 @@ const Navbar = () => {
         navigate('/certifications');
     }
 
-    const scrollToSection = (sectionId) => {
-        // If not on home page, navigate first
-        if (location.pathname !== '/') {
-            navigate('/');
-            setTimeout(() => {
-                const element = document.getElementById(sectionId);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 100);
+    // Contact is now a vertical section — not in horizontal panels
+    const H_PANELS = ['hero', 'about', 'skills'];
+
+    const navigateToPanel = (sectionId) => {
+        const panelIdx = H_PANELS.indexOf(sectionId);
+        if (panelIdx >= 0) {
+            const data = window.__hScrollData;
+            if (data) {
+                const targetY = data.start + (panelIdx / (data.panelCount - 1)) * (data.end - data.start);
+                window.scrollTo({ top: targetY, behavior: 'smooth' });
+            } else {
+                // Fallback before ScrollTrigger initialises
+                window.scrollTo({ top: panelIdx * window.innerWidth, behavior: 'smooth' });
+            }
         } else {
             const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
 
-    // Track active section on scroll
-    useEffect(() => {
-        const handleScroll = () => {
-            const sections = ['hero', 'skills', 'projects', 'experience', 'about', 'contact'];
-            const scrollPosition = window.scrollY + 100;
+    const scrollToSection = (sectionId) => {
+        if (location.pathname !== '/') {
+            navigate('/');
+            setTimeout(() => navigateToPanel(sectionId), 350);
+        } else {
+            navigateToPanel(sectionId);
+        }
+    };
 
+    // Track active section via horizontal scroll events + normal scroll
+    useEffect(() => {
+        const onHChange = (e) => setActiveSection(e.detail);
+        window.addEventListener('h-section-change', onHChange);
+
+        const handleScroll = () => {
+            const sections = ['experience', 'contact'];
+            const scrollPosition = window.scrollY + 100;
             for (const section of sections) {
                 const element = document.getElementById(section);
                 if (element) {
                     const offsetTop = element.offsetTop;
                     const offsetBottom = offsetTop + element.offsetHeight;
-
                     if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
                         setActiveSection(section);
                         break;
@@ -62,9 +74,12 @@ const Navbar = () => {
         };
 
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Initial check
+        handleScroll();
 
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('h-section-change', onHChange);
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, [location.pathname]);
 
     return (

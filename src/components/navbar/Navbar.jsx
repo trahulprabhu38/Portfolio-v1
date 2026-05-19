@@ -92,8 +92,8 @@ const Navbar = () => {
                         </li>
                         <li>
                             <a
-                                className={`menu-item ${activeSection === 'projects' ? 'active' : ''}`}
-                                onClick={() => scrollToSection('projects')}
+                                className={`menu-item ${location.pathname === '/projects' ? 'active' : ''}`}
+                                onClick={() => navigate('/projects')}
                             >
                                 Projects
                             </a>

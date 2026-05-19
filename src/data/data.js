@@ -148,30 +148,46 @@ export const Skills = [
 
 export const WORK_EXPERIENCE = [
   {
-    title: "DevOps Engineer - TOINGG",
-    date: "October 2025 - Present",
+    title: "Site Reliability Engineer - Signzy",
+    date: "May 2026 - Present",
     responsibilities: [
-    "Designed and operated a production Kubernetes (AKS) platform for stateless microservices, improving scalability,fault isolation, and deployment reliability.",
-    "Implemented GitOps-based CI/CD pipeline using ArgoCD with blue-green and canary strategies, enabling automated, zero-downtime releases across environments.",
-    "Built a production observability stack (Prometheus, Grafana, NGINX ingress), reducing incident detection time and cutting MTTR by 70%.",
-    "Automated Infrastructure as Code (Terraform) for disaster recovery and high availability; handled production incidents and on-call debugging, reducing incident response time by 40%." ,
-    "Implemented Kubernetes RBAC, IAM policies, and secure networking (VPC, load balancers) for production workloads.",
+      "Joined Signzy as Site Reliability Engineer",
+    ],
+  },
+  {
+    title: "DevOps Engineer - Valura.AI",
+    date: "January 2026 - May 2026",
+    responsibilities: [
+      "Leading end-to-end DevOps for Valura's upcoming product launch – architecting and owning deployment pipelines across IMT and UAE regions, ensuring geo-redundancy, compliance readiness, and zero-downtime release strategy.",
+      "Achieved 45% dev infrastructure cost reduction by migrating development servers from AWS to on-premises (Proxmox + Coolify on hardened Linux), maintaining full environment parity throughout.",
+      "Executed conflict-driven production evacuation (ME-Central-1 → AP-South-1) via Terraform IaC + Bash under live geopolitical pressure – sub-15-min downtime, full restoration within 48 hours.",
+      "Centralised 300+ secrets in HashiCorp Vault (90% exposure reduction); SonarQube gates cut vulnerabilities 30–50%; OPNsense IDS/IPS + VPN deployed.",
+      "Instrumental in achieving ISO 27001 certification – hardened infrastructure controls, enforced audit logging, and implemented security policies aligned with compliance requirements.",
+    ],
+  },
+  {
+    title: "DevOps Intern - TOINGG",
+    date: "October 2025 - January 2026",
+    responsibilities: [
+      "Designed multi-cloud architecture (AWS + GCP) using Terraform – serverless stacks (Cloud Run + Lambda), IaC-driven workflows, achieving 90% reduction in monthly infrastructure spend.",
+      "Engineered high-throughput data pipeline handling 6,000+ records/run – async processing, intelligent batching, and workload parallelisation delivered 85% faster scraping cycles.",
+      "Embedded SonarQube + Trivy in CI/CD pipelines as automated quality gates – boosted code quality 65%, eliminated 80% of critical vulnerabilities across multiple services.",
+      "Collaborated with cross-functional engineering teams to drive GitOps adoption – standardised deployment workflows and reduced environment-related incidents across dev, staging, and production.",
     ],
   },
   {
     title: "DevOps Intern - PGAGI",
-    date: "June 2025 - October 2025",
+    date: "June 2025 - December 2025",
     responsibilities: [
-      // "Architected and deployed multi-cloud infrastructure spanning AWS and GCP using Terraform IaC reducing operational costs by 90%",
-      "Containerized distributed microservices using secure multi-stage Dockerfiles with layer optimization following industry security best practices",
-      "Improved data processing throughput by 90% and reduced web scraping execution time by 85% through strategic infrastructure optimization",
-      "Integrated SonarQube static code analysis and Trivy container security scanning improving code quality by 65% and reducing vulnerabilities by 80%",
-      "Orchestrated complex workloads with Kubernetes and AWS Lambda serverless services achieving horizontal auto-scaling and zero downtime",
+      "Containerized distributed microservices using secure multi-stage Dockerfiles with layer optimization following industry security best practices.",
+      "Improved data processing throughput by 90% and reduced web scraping execution time by 85% through strategic infrastructure optimization.",
+      "Integrated SonarQube static code analysis and Trivy container security scanning improving code quality by 65% and reducing vulnerabilities by 80%.",
+      "Orchestrated complex workloads with Kubernetes and AWS Lambda serverless services achieving horizontal auto-scaling and zero downtime.",
     ],
   },
   {
     title: "Development Intern - ISRO",
-    date: "July 2024 - Present",
+    date: "July 2024 - June 2025",
     responsibilities: [
       "Led cross-functional 10-member development team building core geospatial features for Bhuvan platform (ISRO's national geoportal)",
       "Added comprehensive multilingual support for 10+ regional Indian languages increasing platform adoption by 45% and improving accessibility",
@@ -190,17 +206,17 @@ export const WORK_EXPERIENCE = [
       "Taught industry best practices for ReactJS component architecture, ExpressJS middleware, MongoDB schema design and secure JWT authentication",
     ],
   },
-  // {
-  //   title: "Software Developer - Stealth AI (UK)",
-  //   date: "October 2024 - December 2024",
-  //   responsibilities: [
-  //     "Built production-ready MVP for UK-based AI startup in 2 months using full MERN stack with integrated LLM capabilities",
-  //     "Improved frontend performance by 30% through React optimization, code splitting, lazy loading and efficient state management",
-  //     "Collaborated effectively with global distributed team across multiple time zones using agile methodologies and async communication",
-  //     "Participated actively in daily standups, sprint planning sessions, technical code reviews and architectural decision-making",
-  //     "Accelerated product launch readiness timeline through rapid feature development, quick iteration cycles and continuous feedback",
-  //   ],
-  // },
+  {
+    title: "Software Developer - Stealth AI (UK)",
+    date: "October 2024 - December 2024",
+    responsibilities: [
+      "Built production-ready MVP for UK-based AI startup in 2 months using full MERN stack with integrated LLM capabilities",
+      "Improved frontend performance by 30% through React optimization, code splitting, lazy loading and efficient state management",
+      "Collaborated effectively with global distributed team across multiple time zones using agile methodologies and async communication",
+      "Participated actively in daily standups, sprint planning sessions, technical code reviews and architectural decision-making",
+      "Accelerated product launch readiness timeline through rapid feature development, quick iteration cycles and continuous feedback",
+    ],
+  },
   {
     title: "Open Source Developer - GirlScript Summer of Code",
     date: "October 2024 - November 2024",

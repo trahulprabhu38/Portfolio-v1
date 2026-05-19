@@ -8,8 +8,7 @@ import Skills from './components/skills/Skills'
 import WorkExperience from './components/workExperience/workExperience'
 import ContactMe from './components/contactMe/contact'
 import Footer from './components/footer/footer'
-import SkillsPage from './components/Skillspage/SkillsPage'
-import Projects from './components/projects/Projects'
+import ProjectsPage from './components/projects/ProjectsPage'
 import About from './components/about/About.jsx'
 import Certifications from "./components/certifications/Certifications.jsx";
 
@@ -25,12 +24,11 @@ function App() {
                 <Hero />
                 <About />
                 <Skills />
-                {/* <SkillsPage /> */}
                 <WorkExperience />
-                <Projects />
                 <ContactMe />
               </>
             } />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/certifications" element={<Certifications />} />
           </Routes>
         </main>

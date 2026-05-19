@@ -9,19 +9,20 @@ const About = () => {
           <div className="about-text">
             <h3>Professional Summary</h3>
             <p>
-              DevOps Engineer with 1 years of experience specializing in cloud infrastructure,
-              Kubernetes orchestration, and CI/CD automation. Currently working at TOINGG, deploying
-              production-grade AKS clusters and implementing GitOps workflows with ArgoCD.
+              Site Reliability Engineer at Signzy and DevOps Engineer at Valura.AI, with 1+ years
+              of experience in cloud infrastructure, Kubernetes orchestration, and CI/CD automation.
+              Focused on building reliable, secure, and cost-efficient production systems.
+              KCNA, CKAD &amp; Terraform certified.
             </p>
 
             <h3>Key Achievements</h3>
             <ul className="achievements-list">
-              <li>Reduced Mean Time To Recovery (MTTR) by 70% through Prometheus-Grafana monitoring</li>
-              <li>Achieved 90% cost reduction through multi-cloud infrastructure optimization</li>
-              <li>Improved data processing throughput by 90% at PGAGI</li>
+              <li>Instrumental in achieving ISO 27001 certification at Valura.AI through hardened infrastructure controls and audit logging</li>
+              <li>Achieved 45% dev infra cost reduction by migrating AWS workloads to on-premises Proxmox at Valura.AI</li>
+              <li>Executed production evacuation (ME-Central-1 → AP-South-1) in sub-15-min downtime under live geopolitical pressure</li>
+              <li>Achieved 90% infrastructure cost reduction through multi-cloud Terraform architecture at TOINGG</li>
               <li>Led 10-member team at ISRO for Bhuvan geospatial platform development</li>
               <li>Ranked #35 on GSSoC'24 leaderboard with 90+ open-source contributions</li>
-              <li>Mentored 70+ students achieving 100% project completion rate</li>
             </ul>
 
             <h3>Technical Expertise</h3>
@@ -51,7 +52,7 @@ const About = () => {
               <p>Years Experience</p>
             </div>
             <div className="stat-item">
-              <h3>4</h3>
+              <h3>6</h3>
               <p>Companies</p>
             </div>
             <div className="stat-item">
@@ -63,12 +64,12 @@ const About = () => {
               <p>Open Source PRs</p>
             </div>
             <div className="stat-item">
-              <h3>70%</h3>
-              <p>MTTR Reduction</p>
+              <h3>3</h3>
+              <p>Cloud Certs</p>
             </div>
             <div className="stat-item">
-              <h3>90%</h3>
-              <p>Cost Savings</p>
+              <h3>45%</h3>
+              <p>Infra Cost Cut</p>
             </div>
           </div>
         </div>

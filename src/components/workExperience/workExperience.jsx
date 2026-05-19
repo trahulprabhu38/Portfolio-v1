@@ -1,155 +1,165 @@
 import React, { useEffect, useRef } from "react";
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./workExperience.css";
 import { WORK_EXPERIENCE } from "../../data/data";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const WorkExperience = () => {
-	const sectionRef = useRef(null);
-	const timelineRef = useRef(null);
-	const experienceCardsRef = useRef([]);
+  const sectionRef = useRef(null);
+  const lineRef = useRef(null);
 
-	// Company images mapping
-	const companyImages = {
-		"TOINGG": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80",
-		"PGAGI": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
-		"ISRO": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&q=80",
-		"DSCE": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80",
-		"Stealth AI (UK)": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-		"GirlScript Summer of Code": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
-		"SpawnLabs": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
-	};
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header reveal
+      gsap.from([".exp-eyebrow", ".exp-title", ".exp-subtitle"], {
+        opacity: 0,
+        y: 32,
+        duration: 0.75,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".exp-header",
+          start: "top 82%",
+          toggleActions: "play none none none",
+        },
+      });
 
-	useEffect(() => {
-		const ctx = gsap.context(() => {
-			// Simple fade-in animation for title
-			gsap.from('.experience-title', {
-				scrollTrigger: {
-					trigger: sectionRef.current,
-					start: 'top 80%',
-					toggleActions: 'play none none none',
-				},
-				opacity: 0,
-				y: 30,
-				duration: 0.6,
-				ease: 'power2.out',
-			});
+      // Line draws itself as you scroll
+      gsap.fromTo(
+        lineRef.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          transformOrigin: "top center",
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".exp-timeline",
+            start: "top 60%",
+            end: "bottom 85%",
+            scrub: 1,
+          },
+        }
+      );
 
-			// Simple fade-in for experience cards
-			experienceCardsRef.current.forEach((card, index) => {
-				if (card) {
-					gsap.from(card, {
-						scrollTrigger: {
-							trigger: card,
-							start: 'top 85%',
-							toggleActions: 'play none none none',
-						},
-						opacity: 0,
-						y: 30,
-						duration: 0.5,
-						delay: index * 0.1,
-						ease: 'power2.out',
-					});
-				}
-			});
-		}, sectionRef);
+      // Each entry: card slides in from its side, dot springs in
+      document.querySelectorAll(".exp-entry").forEach((entry) => {
+        const isLeft = entry.classList.contains("exp-left");
+        const card = entry.querySelector(".exp-card");
+        const dot = entry.querySelector(".exp-dot");
 
-		return () => ctx.revert();
-	}, []);
+        // Card slides in from left or right
+        gsap.fromTo(
+          card,
+          {
+            x: isLeft ? -90 : 90,
+            opacity: 0,
+            filter: "blur(6px)",
+          },
+          {
+            x: 0,
+            opacity: 1,
+            filter: "blur(0px)",
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: entry,
+              start: "top 84%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
 
-	const getCompanyName = (title) => {
-		const parts = title.split(' - ');
-		return parts[parts.length - 1];
-	};
+        // Dot springs in
+        gsap.fromTo(
+          dot,
+          { scale: 0, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.45,
+            ease: "back.out(2.5)",
+            scrollTrigger: {
+              trigger: entry,
+              start: "top 82%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      });
+    }, sectionRef);
 
-	const getRole = (title) => {
-		const parts = title.split(' - ');
-		return parts[0];
-	};
+    return () => ctx.revert();
+  }, []);
 
   return (
-	<section className="experience-container" ref={sectionRef} id="experience">
-	  <div className="experience-header">
-		<h2 className="experience-title">Professional Journey</h2>
-		<p className="experience-subtitle">
-		  Building scalable infrastructure and driving DevOps excellence across organizations
-		</p>
-	  </div>
+    <section className="exp-section" id="experience" ref={sectionRef}>
+      <div className="exp-header">
+        <span className="exp-eyebrow">Experience</span>
+        <h2 className="exp-title">Professional Journey</h2>
+        <p className="exp-subtitle">
+          Building reliable infrastructure and shipping DevOps culture across organizations
+        </p>
+      </div>
 
-	  <div className="timeline-container">
-		{/* Vertical Timeline Line */}
-		<div className="timeline-line" ref={timelineRef}></div>
+      <div className="exp-timeline">
+        <div className="exp-line" ref={lineRef} />
 
-		{/* Experience Cards */}
-		<div className="timeline-items">
-		  {WORK_EXPERIENCE.map((item, index) => {
-			const companyName = getCompanyName(item.title);
-			const role = getRole(item.title);
-			const isEven = index % 2 === 0;
+        {WORK_EXPERIENCE.map((item, index) => {
+          const isLeft = index % 2 === 0;
+          const parts = item.title.split(" - ");
+          const company = parts[parts.length - 1];
+          const role = parts.slice(0, -1).join(" - ");
 
-			return (
-			  <div
-				key={index}
-				className={`timeline-item ${isEven ? 'left' : 'right'}`}
-				ref={(el) => (experienceCardsRef.current[index] = el)}
-			  >
-				{/* Timeline Dot */}
-				<div className="timeline-dot">
-				  <div className="timeline-dot-inner"></div>
-				  <div className="timeline-dot-pulse"></div>
-				</div>
+          const card = (
+            <div className="exp-card">
+              <div className="exp-card-glow" />
+              <div className="exp-card-top">
+                <span className="exp-company-chip">{company}</span>
+                <span className="exp-date-chip">{item.date}</span>
+              </div>
+              <h3 className="exp-role">{role}</h3>
+              <ul className="exp-bullets">
+                {item.responsibilities.map((r, i) => (
+                  <li key={i}>
+                    <span className="exp-bullet-dot" />
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
 
-				{/* Experience Card */}
-				<div className="timeline-card">
-				  <div className="timeline-card-inner">
-					{/* Date Badge */}
-					<div className="timeline-date">{item.date}</div>
-
-					{/* Card Content */}
-					<div className="timeline-content">
-					  {/* Company Image */}
-					  <div className="timeline-image">
-						<img
-						  src={companyImages[companyName] || "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"}
-						  alt={companyName}
-						/>
-						<div className="timeline-overlay">
-						  <div className="company-badge-timeline">{companyName}</div>
-						</div>
-					  </div>
-
-					  {/* Details */}
-					  <div className="timeline-details">
-						<h3 className="timeline-role">{role}</h3>
-						<div className="timeline-company">{companyName}</div>
-
-						<div className="timeline-responsibilities">
-						  <h4>Key Achievements</h4>
-						  <ul>
-							{item.responsibilities.map((responsibility, idx) => (
-							  <li key={idx}>
-								<span className="timeline-bullet">
-								  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-									<circle cx="10" cy="10" r="4" fill="#77709c"/>
-								  </svg>
-								</span>
-								<span>{responsibility}</span>
-							  </li>
-							))}
-						  </ul>
-						</div>
-					  </div>
-					</div>
-				  </div>
-				</div>
-			  </div>
-			);
-		  })}
-		</div>
-	  </div>
-	</section>
+          return (
+            <div key={index} className={`exp-entry ${isLeft ? "exp-left" : "exp-right"}`}>
+              {isLeft ? (
+                <>
+                  {card}
+                  <div className="exp-dot-col">
+                    <div className="exp-dot">
+                      <div className="exp-dot-ring" />
+                    </div>
+                  </div>
+                  <div className="exp-spacer" />
+                </>
+              ) : (
+                <>
+                  <div className="exp-spacer" />
+                  <div className="exp-dot-col">
+                    <div className="exp-dot">
+                      <div className="exp-dot-ring" />
+                    </div>
+                  </div>
+                  {card}
+                </>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
-}
+};
+
 export default WorkExperience;

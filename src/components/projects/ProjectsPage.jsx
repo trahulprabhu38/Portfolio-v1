@@ -145,14 +145,12 @@ const ProjectsPage = () => {
             className={`pp-card ${project.featured ? 'featured' : ''}`}
             ref={el => (cardsRef.current[index] = el)}
           >
-            <div className="pp-card-img">
-              <img src={project.image} alt={project.title} loading="lazy" />
-              <div className="pp-card-overlay">
-                <div className="pp-tags">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="pp-tag">{tag}</span>
-                  ))}
-                </div>
+            <div className="pp-card-visual">
+              <div className="pp-card-visual-number">{String(index + 1).padStart(2, '0')}</div>
+              <div className="pp-tags">
+                {project.tags.map(tag => (
+                  <span key={tag} className="pp-tag">{tag}</span>
+                ))}
               </div>
               {project.featured && <span className="pp-featured-badge">Featured</span>}
             </div>

@@ -103,6 +103,13 @@ function MainPage() {
           scrub: true,
           end: () => `+=${(numPanels - 1) * window.innerHeight}`,
           id: "h-scroll",
+          onRefresh: (self) => {
+            window.__hScrollData = {
+              start: self.start,
+              end: self.end,
+              panelCount: numPanels,
+            };
+          },
           onUpdate: (self) => {
             window.__hScrollData = {
               start: self.start,

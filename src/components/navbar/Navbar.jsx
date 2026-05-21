@@ -21,6 +21,7 @@ const Navbar = () => {
 
     const handleCertificationsClick = () => {
         navigate('/certifications');
+        window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
     // Contact is now a vertical section — not in horizontal panels
@@ -35,7 +36,7 @@ const Navbar = () => {
                 window.scrollTo({ top: targetY, behavior: 'smooth' });
             } else {
                 // Fallback before ScrollTrigger initialises
-                window.scrollTo({ top: panelIdx * window.innerWidth, behavior: 'smooth' });
+                window.scrollTo({ top: panelIdx * window.innerHeight, behavior: 'smooth' });
             }
         } else {
             const element = document.getElementById(sectionId);

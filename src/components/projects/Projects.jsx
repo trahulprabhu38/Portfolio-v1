@@ -116,14 +116,12 @@ const Projects = () => {
               ref={(el) => (projectCardsRef.current[index] = el)}
             >
               <div className="project-card-modern">
-                <div className="project-image-wrapper">
-                  <img src={project.image} alt={project.title} />
-                  <div className="project-overlay">
-                    <div className="project-tags">
-                      {project.tags.map((tag, idx) => (
-                        <span key={idx} className="project-tag">{tag}</span>
-                      ))}
-                    </div>
+                <div className="project-visual">
+                  <div className="project-visual-number">{String(index + 1).padStart(2, '0')}</div>
+                  <div className="project-tags">
+                    {project.tags.map((tag, idx) => (
+                      <span key={idx} className="project-tag">{tag}</span>
+                    ))}
                   </div>
                 </div>
                 <div className="project-info">

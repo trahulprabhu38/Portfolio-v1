@@ -16,4 +16,3 @@ spec:
       port: 5173
       targetPort: 80
 
-  
